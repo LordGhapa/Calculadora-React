@@ -27,6 +27,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "cz-conventional-emoji"
     }
+  }
 }
