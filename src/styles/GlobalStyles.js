@@ -14,6 +14,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 

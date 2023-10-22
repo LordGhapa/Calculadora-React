@@ -9,7 +9,7 @@ function App() {
           <div id="item-0">Felipe Lacerda</div>
           <div id="item-1"><span>|</span><span>|</span><span>|</span></div>
           <div id="item-2-1">
-            <div id="item-2"></div>
+            <div id="item-2" className='operationName'></div>
             <div id="item-3" className="display"></div>
           </div>
 

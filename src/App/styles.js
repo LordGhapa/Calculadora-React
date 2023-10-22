@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
- 
   position: relative;
 
   display: grid;
@@ -25,9 +24,7 @@ export const Grid = styled.div`
     border-radius: 5px;
     width: 33px;
   }
-
   display: grid;
-
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
@@ -41,6 +38,8 @@ export const Grid = styled.div`
     grid-row-end: 2;
     grid-column-end: 5;
     color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 200%;
   }
   #item-1 {
     background-color: #473838;
