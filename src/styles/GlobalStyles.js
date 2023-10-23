@@ -17,7 +17,10 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
-
+.ErrMaxNum{
+  font-size:8px;
+  line-height: 250%;
+}
 
 .cancelButton {
   background: linear-gradient(

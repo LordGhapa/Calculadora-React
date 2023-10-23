@@ -14,10 +14,6 @@ export const Container = styled.div`
   transform: scale(1.5);
 `
 
-export const Fundo = styled.div`
-  width: fit-content;
-`
-
 export const Grid = styled.div`
   button {
     color: white;

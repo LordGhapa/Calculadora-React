@@ -8,6 +8,6 @@ import App from './App/index.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyles/>
-    <App />
+    <App  />
   </React.StrictMode>,
 )
