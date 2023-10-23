@@ -2,8 +2,13 @@ import { useEffect, useState } from 'react'
 import * as Styled from './styles'
 function App() {
   const [display, setDisplay] = useState('')
-  const [newNumber, setNewNumber] = useState(false)
+  const [newNumber, setNewNumber] = useState(true)
   const [hasDecimal, setHasDecimal] = useState(false)
+  const [operator, setOperator] = useState(null)
+  const [lastNum, setLastNum] = useState(null)
+  const [currentOperator, setCurrentOperator] = useState("");
+
+  const pendingOperation = operator != null
 
   function atualizarDisplay(num) {
     // piscaTela()
@@ -26,38 +31,80 @@ function App() {
   useEffect(() => {
     setHasDecimal(display.indexOf(',') != -1)
   }, [display])
-  // const existeDecimal = () => display.text().indexOf(',') != -1
-  // const existeValor = () => display.text().length > 0
 
   const handleDecimal = () => {
-    console.log("fui chamado ",hasDecimal);
     if (!hasDecimal) {
-    if (display.length > 0){
-      atualizarDisplay(',')
-    }else{
-      atualizarDisplay('0,')
+      if (display.length > 0) {
+        atualizarDisplay(',')
+      } else {
+        atualizarDisplay('0,')
+      }
     }
+  }
+
+  const handleOperator = op => {
+    /* / * - + √ */
+    if (!newNumber) {
+      
+      // calculate()
+      setNewNumber(true)
+      setOperator(op)
+      setLastNum(Number(display.replace(',', '.')))
+      changeNameOperation(op)
     }
+  }
+const  changeNameOperation=(op)=>{
+  
+  if (op == '+') setCurrentOperator('SOMA') 
+   if (op == '-')  setCurrentOperator('SUBT')
+  if (op == '*')  setCurrentOperator('MULT')
+   if (op == '/')  setCurrentOperator('DIVS')
+}
+
+  const calculate = () => {
+    if (pendingOperation) {
+      const currentNumber = Number(display.replace(',', '.'))
+      setDisplay("")
+      if (operator == '+') atualizarDisplay(lastNum + currentNumber)
+      if (operator == '-') atualizarDisplay(lastNum - currentNumber)
+      if (operator == '*') atualizarDisplay(lastNum * currentNumber)
+      if (operator == '/') atualizarDisplay(lastNum / currentNumber)
+    }
+  }
+  const clearAll=()=>{
+    setDisplay('')
+      setNewNumber(true)
+     setHasDecimal(false)
+     setOperator(null)
+     setLastNum(null)
+     setCurrentOperator("");
   }
 
   //*  MAKING KEYBOARD WORK */
   useEffect(() => {
-    const numbers = [0,1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const operations = ['/', '*', '-', '+']
     const handleKeyDown = e => {
-// console.log(e.key);
+      // console.log(e.key);
       //  for num 132...
       if (numbers.indexOf(Number(e.key)) != -1) insertNum(e.key)
       // for Backspace
       if (e.key === 'Backspace') erase()
       // for handleDecimal
-      if (e.key === ',')  handleDecimal()
+      if (e.key === ',') handleDecimal()
+      
+      //for handle operarations
+      if (operations.indexOf(e.key) != -1) handleOperator(e.key)
+
+      if (e.key === 'Enter') calculate()
+
     }
     document.addEventListener('keydown', handleKeyDown)
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
     }
-   
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [handleDecimal])
   //*  MAKING KEYBOARD WORK */
 
@@ -70,15 +117,16 @@ function App() {
             <span>|</span>
             <span>|</span>
             <span>|</span>
+            <span>|</span>
           </div>
           <div id="item-2-1">
-            <div id="item-2" className="operationName"></div>
+            <div id="item-2" className="operationName">{currentOperator}</div>
             <div id="item-3" className={`display `}>
               {display}
             </div>
           </div>
 
-          <button id="item-4" className="ClearDisplay">
+          <button id="item-4" onClick={clearAll} className="ClearDisplay">
             ON
             <hr />
             AC
@@ -155,13 +203,25 @@ function App() {
           >
             6
           </Styled.Button>
-          <Styled.Button id="item-20" className="operadorDividir">
+          <Styled.Button
+            id="item-20"
+            onClick={() => handleOperator('/')}
+            className="operadorDividir"
+          >
             ÷
           </Styled.Button>
-          <Styled.Button id="item-21" className="operadorMultiplicar">
+          <Styled.Button
+            id="item-21"
+            onClick={() => handleOperator('*')}
+            className="operadorMultiplicar"
+          >
             X
           </Styled.Button>
-          <Styled.Button id="item-22" className="operadorSubtrair">
+          <Styled.Button
+            id="item-22"
+            onClick={() => handleOperator('-')}
+            className="operadorSubtrair"
+          >
             -
           </Styled.Button>
           <Styled.Button
@@ -185,7 +245,11 @@ function App() {
           >
             3
           </Styled.Button>
-          <Styled.Button id="item-26" className="operadorAdicionar">
+          <Styled.Button
+            id="item-26"
+            onClick={() => handleOperator('+')}
+            className="operadorAdicionar"
+          >
             +
           </Styled.Button>
           <Styled.Button
@@ -195,10 +259,14 @@ function App() {
           >
             0
           </Styled.Button>
-          <Styled.Button id="item-28" onClick={handleDecimal} className="decimal">
+          <Styled.Button
+            id="item-28"
+            onClick={handleDecimal}
+            className="decimal"
+          >
             ,
           </Styled.Button>
-          <Styled.Button id="item-29" className="igual">
+          <Styled.Button id="item-29" onClick={calculate} className="igual">
             =
           </Styled.Button>
         </Styled.Grid>
