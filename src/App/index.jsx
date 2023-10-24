@@ -5,14 +5,29 @@ function App() {
   const [newNumber, setNewNumber] = useState(true)
   const [hasDecimal, setHasDecimal] = useState(false)
   const [operator, setOperator] = useState(null)
-  const [lastNum, setLastNum] = useState(null)
-  const [currentOperator, setCurrentOperator] = useState("");
+  const [firstNum, setFirstNum] = useState(null)
+  const [currentOperatorNameDisplay, setCurrentOperatorNameDisplay] =
+    useState(null)
 
-  const pendingOperation = operator != null
+  const [firstCicleOperation, setFirstCicleOperation] = useState(true)
 
-  function atualizarDisplay(num) {
-    // piscaTela()
-    if (newNumber) {
+  const [ blinkEffect, setBlinkEffect] = useState(true);
+
+const handleBlinkEffect=()=>{
+  setBlinkEffect(false)
+  setTimeout(() => {
+    setBlinkEffect(true)
+  }, 25);
+}
+
+useEffect(()=>{
+  handleBlinkEffect()
+},[display,operator,currentOperatorNameDisplay])
+  // const pendingOperation = operator != null
+
+  function atualizarDisplay(num,refrash=false) {
+    
+    if (newNumber ||refrash) {
       setDisplay(num)
       setNewNumber(false)
     } else {
@@ -25,79 +40,138 @@ function App() {
   const insertNum = num => atualizarDisplay(num)
 
   const erase = () => {
-    setDisplay(s => s.slice(0, -1))
+    setDisplay(s => String(s).slice(0, -1))
   }
-
+// HANDLE IF DECIMAL EXISTS
   useEffect(() => {
-    setHasDecimal(display.indexOf(',') != -1)
+
+    setHasDecimal(String(display).indexOf('.') != -1)
+    if(display===".")setDisplay("0.")
   }, [display])
 
   const handleDecimal = () => {
+   
     if (!hasDecimal) {
       if (display.length > 0) {
-        atualizarDisplay(',')
+        atualizarDisplay('.')
       } else {
-        atualizarDisplay('0,')
+        atualizarDisplay('0.')
       }
+      setHasDecimal(true)
     }
   }
+// HANDLE IF DECIMAL EXISTS */
 
   const handleOperator = op => {
     /* / * - + √ */
     if (!newNumber) {
-      
       // calculate()
       setNewNumber(true)
       setOperator(op)
-      setLastNum(Number(display.replace(',', '.')))
+      setFirstNum(parseFloat(display))
       changeNameOperation(op)
+      setFirstCicleOperation(true)
     }
   }
-const  changeNameOperation=(op)=>{
-  
-  if (op == '+') setCurrentOperator('SOMA') 
-   if (op == '-')  setCurrentOperator('SUBT')
-  if (op == '*')  setCurrentOperator('MULT')
-   if (op == '/')  setCurrentOperator('DIVS')
-}
+  const changeNameOperation = op => {
+    if (op == '+') setCurrentOperatorNameDisplay('SOMA')
+    if (op == '-') setCurrentOperatorNameDisplay('SUBT')
+    if (op == '*') setCurrentOperatorNameDisplay('MULT')
+    if (op == '/') setCurrentOperatorNameDisplay('DIVS')
+  }
 
-  const calculate = () => {
-    if (pendingOperation) {
-      const currentNumber = Number(display.replace(',', '.'))
-      setDisplay("")
-      if (operator == '+') atualizarDisplay(lastNum + currentNumber)
-      if (operator == '-') atualizarDisplay(lastNum - currentNumber)
-      if (operator == '*') atualizarDisplay(lastNum * currentNumber)
-      if (operator == '/') atualizarDisplay(lastNum / currentNumber)
+  const preCalculate = () => {
+    // console.log(firstNum);
+    // console.log(operator);
+    // console.log(SecondNum);
+    //  setSecondNum(parseFloat(display))
+    if (firstNum && operator) {
+      let n2 = parseFloat(display)
+
+      
+      calculate(firstNum, operator, n2)
+
     }
   }
-  const clearAll=()=>{
+  const calculate = (n1, op, n2) => {
+    console.log(n1)
+    console.log(op)
+    console.log(n2)
+
+    if (op == '+') atualizarDisplay(n1 + n2,true)
+    if (op == '*') atualizarDisplay(n1 * n2,true)
+
+    if (firstCicleOperation) {
+      if (op == '-') atualizarDisplay(n1 - n2,true)
+      if (op == '/') atualizarDisplay(n1 / n2,true)
+
+      setFirstNum(n2)
+      setFirstCicleOperation(false)
+    } else {
+      if (op == '-') atualizarDisplay(n2 - n1,true)
+      if (op == '/') atualizarDisplay(n2 / n1,true)
+    }
+  }
+
+  // const calculate = () => {
+  //   let result = null
+  //   if (pendingOperation) {
+  //     const currentNumber = Number(display)
+  //     setDisplay('')
+
+  //     console.log(operator)
+  //     console.log(firstNum)
+  //     console.log(currentNumber)
+
+  //     if (operator == '+') {
+  //       atualizarDisplay(currentNumber + firstNum)
+  //     }
+  //     if (operator == '-')   {
+  //       console.log(result)
+  //       result = firstNum - currentNumber
+  //       atualizarDisplay(result)
+  //     }
+
+  //     if (operator == '*') {
+  //       atualizarDisplay(firstNum * currentNumber)
+  //     }
+  //     if (operator == '/') {
+  //       atualizarDisplay(firstNum / currentNumber)
+  //     }
+  //     setFirstNum(currentNumber)
+  //     console.log(currentNumber);
+  //   }
+  // }
+  const clearAll = () => {
     setDisplay('')
-      setNewNumber(true)
-     setHasDecimal(false)
-     setOperator(null)
-     setLastNum(null)
-     setCurrentOperator("");
+    setNewNumber(true)
+    setHasDecimal(false)
+    setOperator(null)
+    setFirstNum(null)
+    setCurrentOperatorNameDisplay(null)
   }
 
-  //*  MAKING KEYBOARD WORK */
+  //*  MAKING KEYBOARD WORK 
   useEffect(() => {
     const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     const operations = ['/', '*', '-', '+']
     const handleKeyDown = e => {
+      e.preventDefault()
       // console.log(e.key);
       //  for num 132...
       if (numbers.indexOf(Number(e.key)) != -1) insertNum(e.key)
       // for Backspace
       if (e.key === 'Backspace') erase()
       // for handleDecimal
-      if (e.key === ',') handleDecimal()
-      
+      if ((e.key === ',') | (e.key === '.')) handleDecimal()
+
       //for handle operarations
       if (operations.indexOf(e.key) != -1) handleOperator(e.key)
 
-      if (e.key === 'Enter') calculate()
-
+      if (e.key === 'Enter') {
+        preCalculate()
+        // calculate()
+      }
     }
     document.addEventListener('keydown', handleKeyDown)
     return () => {
@@ -119,12 +193,14 @@ const  changeNameOperation=(op)=>{
             <span>|</span>
             <span>|</span>
           </div>
-          <div id="item-2-1">
-            <div id="item-2" className="operationName">{currentOperator}</div>
+      { blinkEffect?    <div id="item-2-1">
+            <div id="item-2" className="operationName">
+              {currentOperatorNameDisplay}
+            </div>
             <div id="item-3" className={`display `}>
               {display}
             </div>
-          </div>
+          </div>:""}
 
           <button id="item-4" onClick={clearAll} className="ClearDisplay">
             ON
@@ -266,7 +342,7 @@ const  changeNameOperation=(op)=>{
           >
             ,
           </Styled.Button>
-          <Styled.Button id="item-29" onClick={calculate} className="igual">
+          <Styled.Button id="item-29" onClick={preCalculate} className="igual">
             =
           </Styled.Button>
         </Styled.Grid>
