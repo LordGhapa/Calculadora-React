@@ -153,7 +153,7 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-11 {
-    background-color: #577b7e;
+   
     grid-row-start: 5;
     grid-column-start: 1;
 
@@ -161,7 +161,7 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-12 {
-    background-color: #596b56;
+    
     grid-row-start: 6;
     grid-column-start: 1;
 
@@ -169,7 +169,7 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-13 {
-    background-color: #59f997;
+   
     grid-row-start: 7;
     grid-column-start: 1;
 
@@ -177,7 +177,7 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-14 {
-    background-color: #fbab79;
+  
     grid-row-start: 5;
     grid-column-start: 2;
 
@@ -185,7 +185,7 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-15 {
-    background-color: #afe967;
+   
     grid-row-start: 6;
     grid-column-start: 2;
 
@@ -193,7 +193,7 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-16 {
-    background-color: #9bf87b;
+   
     grid-row-start: 7;
     grid-column-start: 2;
 
@@ -201,7 +201,7 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-17 {
-    background-color: #55d5d7;
+   
     grid-row-start: 5;
     grid-column-start: 3;
 
@@ -209,7 +209,7 @@ export const Grid = styled.div`
     grid-column-end: 4;
   }
   #item-18 {
-    background-color: #5ad9dc;
+   
     grid-row-start: 6;
     grid-column-start: 3;
 
@@ -217,7 +217,7 @@ export const Grid = styled.div`
     grid-column-end: 4;
   }
   #item-19 {
-    background-color: #d5f577;
+   
     grid-row-start: 7;
     grid-column-start: 3;
 
@@ -225,7 +225,7 @@ export const Grid = styled.div`
     grid-column-end: 4;
   }
   #item-20 {
-    background-color: #dac9bd;
+   
     grid-row-start: 5;
     grid-column-start: 4;
 
@@ -233,7 +233,7 @@ export const Grid = styled.div`
     grid-column-end: 5;
   }
   #item-21 {
-    background-color: #ce5a5c;
+   
     grid-row-start: 6;
     grid-column-start: 4;
 
@@ -241,7 +241,7 @@ export const Grid = styled.div`
     grid-column-end: 5;
   }
   #item-22 {
-    background-color: #9ca557;
+  
     grid-row-start: 7;
     grid-column-start: 4;
 
@@ -249,7 +249,7 @@ export const Grid = styled.div`
     grid-column-end: 5;
   }
   #item-23 {
-    background-color: #a98f59;
+  
     grid-row-start: 8;
     grid-column-start: 1;
 
@@ -257,7 +257,7 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-24 {
-    background-color: #65578e;
+   
     grid-row-start: 8;
     grid-column-start: 2;
 
@@ -265,7 +265,7 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-25 {
-    background-color: #fd7df5;
+    
     grid-row-start: 8;
     grid-column-start: 3;
 
@@ -283,7 +283,7 @@ export const Grid = styled.div`
     font-weight: lighter;
   }
   #item-27 {
-    background-color: #a5b5fa;
+   
     grid-row-start: 9;
     grid-column-start: 1;
 
@@ -291,7 +291,7 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-28 {
-    background-color: #78daec;
+   
     grid-row-start: 9;
     grid-column-start: 2;
 
@@ -299,7 +299,7 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-29 {
-    background-color: #5bb575;
+   
     grid-row-start: 9;
     grid-column-start: 3;
 

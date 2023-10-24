@@ -196,14 +196,14 @@ useEffect(()=>{
           <Styled.Button
             id="item-12"
             onClick={() => insertNum('7')}
-            className="tecla7"
+       
           >
             7
           </Styled.Button>
           <Styled.Button
             id="item-13"
             onClick={() => insertNum('4')}
-            className="tecla4"
+           
           >
             4
           </Styled.Button>
@@ -213,14 +213,14 @@ useEffect(()=>{
           <Styled.Button
             id="item-15"
             onClick={() => insertNum('8')}
-            className="tecla8"
+        
           >
             8
           </Styled.Button>
           <Styled.Button
             id="item-16"
             onClick={() => insertNum('5')}
-            className="tecla5"
+          
           >
             5
           </Styled.Button>
@@ -233,14 +233,14 @@ useEffect(()=>{
           <Styled.Button
             id="item-18"
             onClick={() => insertNum('9')}
-            className="tecla9"
+    
           >
             9
           </Styled.Button>
           <Styled.Button
             id="item-19"
             onClick={() => insertNum('6')}
-            className="tecla6"
+           
           >
             6
           </Styled.Button>
@@ -268,21 +268,21 @@ useEffect(()=>{
           <Styled.Button
             id="item-23"
             onClick={() => insertNum('1')}
-            className="tecla1"
+           
           >
             1
           </Styled.Button>
           <Styled.Button
             id="item-24"
             onClick={() => insertNum('2')}
-            className="tecla2"
+           
           >
             2
           </Styled.Button>
           <Styled.Button
             id="item-25"
             onClick={() => insertNum('3')}
-            className="tecla3"
+           
           >
             3
           </Styled.Button>
@@ -296,7 +296,7 @@ useEffect(()=>{
           <Styled.Button
             id="item-27"
             onClick={() => insertNum('0')}
-            className="tecla0"
+          
           >
             0
           </Styled.Button>
