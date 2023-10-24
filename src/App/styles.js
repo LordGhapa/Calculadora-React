@@ -62,6 +62,7 @@ export const Grid = styled.div`
     text-align: right;
     height: 25px;
     border-radius: 10px;
+    font-family:  'Pocket Calculator';
   }
   #item-2 {
     background-color: #6ecc69;
@@ -86,6 +87,8 @@ export const Grid = styled.div`
     grid-column-end: 5;
     width: 100%;
     border-radius: 0px 10px 10px 0px;
+    font-size: 20px;
+    letter-spacing:1px;
   }
 
   #item-4 {

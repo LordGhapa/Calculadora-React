@@ -1,6 +1,13 @@
 import { createGlobalStyle } from 'styled-components'
 export const GlobalStyles = createGlobalStyle`
 
+@font-face {
+       font-family: 'Pocket Calculator';
+       src: url('/fonts/pocket_calcuatlor_tt.ttf') format('truetype');
+       font-weight: normal;
+       font-style: normal;
+     }
+
 *{
   margin: 0;
   padding: 0;

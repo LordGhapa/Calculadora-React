@@ -23,7 +23,7 @@ const handleBlinkEffect=()=>{
 useEffect(()=>{
   handleBlinkEffect()
 },[display,operator,currentOperatorNameDisplay])
-  // const pendingOperation = operator != null
+ 
 
   function atualizarDisplay(num,refrash=false) {
     
@@ -91,9 +91,9 @@ useEffect(()=>{
     }
   }
   const calculate = (n1, op, n2) => {
-    console.log(n1)
-    console.log(op)
-    console.log(n2)
+    // console.log(n1)
+    // console.log(op)
+    // console.log(n2)
 
     if (op == '+') atualizarDisplay(n1 + n2,true)
     if (op == '*') atualizarDisplay(n1 * n2,true)
