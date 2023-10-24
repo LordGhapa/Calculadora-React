@@ -63,9 +63,9 @@ useEffect(()=>{
 // HANDLE IF DECIMAL EXISTS */
 
   const handleOperator = op => {
-    /* / * - + √ */
+    
     if (!newNumber) {
-      // calculate()
+     
       setNewNumber(true)
       setOperator(op)
       setFirstNum(parseFloat(display))
@@ -81,10 +81,7 @@ useEffect(()=>{
   }
 
   const preCalculate = () => {
-    // console.log(firstNum);
-    // console.log(operator);
-    // console.log(SecondNum);
-    //  setSecondNum(parseFloat(display))
+  
     if (firstNum && operator) {
       let n2 = parseFloat(display)
 
@@ -113,35 +110,7 @@ useEffect(()=>{
     }
   }
 
-  // const calculate = () => {
-  //   let result = null
-  //   if (pendingOperation) {
-  //     const currentNumber = Number(display)
-  //     setDisplay('')
-
-  //     console.log(operator)
-  //     console.log(firstNum)
-  //     console.log(currentNumber)
-
-  //     if (operator == '+') {
-  //       atualizarDisplay(currentNumber + firstNum)
-  //     }
-  //     if (operator == '-')   {
-  //       console.log(result)
-  //       result = firstNum - currentNumber
-  //       atualizarDisplay(result)
-  //     }
-
-  //     if (operator == '*') {
-  //       atualizarDisplay(firstNum * currentNumber)
-  //     }
-  //     if (operator == '/') {
-  //       atualizarDisplay(firstNum / currentNumber)
-  //     }
-  //     setFirstNum(currentNumber)
-  //     console.log(currentNumber);
-  //   }
-  // }
+  
   const clearAll = () => {
     setDisplay('')
     setNewNumber(true)
@@ -165,7 +134,7 @@ useEffect(()=>{
       // for handleDecimal
       if ((e.key === ',') | (e.key === '.')) handleDecimal()
 
-      //for handle operarations
+      //for handle operations
       if (operations.indexOf(e.key) != -1) handleOperator(e.key)
 
       if (e.key === 'Enter') {
@@ -182,7 +151,7 @@ useEffect(()=>{
   }, [handleDecimal])
   //*  MAKING KEYBOARD WORK */
 
-  return (
+  return (// CAPAZ QUE PODERIA TER CRIADO UM MAP PARA COLOCA OS BOTÕES MAS ACHEI MAIS FÁCIL DE ENTENDER ASSIM
     <>
       <Styled.Container>
         <Styled.Grid>
@@ -218,12 +187,8 @@ useEffect(()=>{
             M+
           </Styled.minBtnTxt>
           <Styled.minBtn id="item-8" className=" cancelButton"></Styled.minBtn>
-          <Styled.minBtn id="item-9" className=" cancelButton">
-            &nbsp;
-          </Styled.minBtn>
-          <Styled.minBtn id="item-10" className=" cancelButton">
-            &nbsp;
-          </Styled.minBtn>
+          <Styled.minBtn id="item-9" className=" cancelButton"></Styled.minBtn>
+          <Styled.minBtn id="item-10" className=" cancelButton"></Styled.minBtn>
 
           <Styled.Button id="item-11" onClick={erase} className="backspace">
             &lt;&lt;

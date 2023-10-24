@@ -6,11 +6,9 @@ export const Container = styled.div`
   display: grid;
   justify-content: center;
   align-content: center;
-
   padding: 10px;
   background: rgb(0, 0, 0);
   border-radius: 10px;
-
   transform: scale(1.5);
 `
 
@@ -308,9 +306,35 @@ export const Grid = styled.div`
     grid-row-end: 10;
     grid-column-end: 4;
   }
+  .cancelButton {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 0, 0, 1) 5%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(255, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(255, 0, 0, 1) 25%,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(255, 0, 0, 1) 35%,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(255, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(255, 0, 0, 1) 55%,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(255, 0, 0, 1) 65%,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(255, 0, 0, 1) 75%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(255, 0, 0, 1) 85%,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(255, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 1) 95%,
+    rgba(255, 0, 0, 1) 100%
+  ) !important;
+  }
 `
 export const minBtn = styled.button`
-  background: rgb(26, 26, 25) !important;
   height: 11px;
   width: 30px;
   align-items: center;
@@ -325,6 +349,6 @@ export const minBtnTxt = styled.div`
 
 export const Button = styled.button`
   margin-left: 12px;
-  background: rgb(34, 34, 34) !important;
+  background: rgb(34, 34, 34) !important ;
   margin-bottom: 5px;
 `
