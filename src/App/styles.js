@@ -10,6 +10,10 @@ export const Container = styled.div`
   background: rgb(0, 0, 0);
   border-radius: 10px;
   transform: scale(1.5);
+
+   @media screen and (max-width: 350px) {
+    transform: scale(1.2);
+  }
 `
 
 export const Grid = styled.div`
@@ -21,7 +25,6 @@ export const Grid = styled.div`
   display: grid;
   grid-template-rows: repeat(9, 1fr);
   grid-template-columns: repeat(4, 1fr);
-
   gap: 0px;
   height: 100%;
 
@@ -62,7 +65,7 @@ export const Grid = styled.div`
     text-align: right;
     height: 25px;
     border-radius: 10px;
-    font-family:  'Pocket Calculator';
+    font-family: 'Pocket Calculator';
   }
   #item-2 {
     background-color: #6ecc69;
@@ -88,7 +91,7 @@ export const Grid = styled.div`
     width: 100%;
     border-radius: 0px 10px 10px 0px;
     font-size: 20px;
-    letter-spacing:1px;
+    letter-spacing: 1px;
   }
 
   #item-4 {
@@ -156,7 +159,6 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-11 {
-   
     grid-row-start: 5;
     grid-column-start: 1;
 
@@ -164,7 +166,6 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-12 {
-    
     grid-row-start: 6;
     grid-column-start: 1;
 
@@ -172,7 +173,6 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-13 {
-   
     grid-row-start: 7;
     grid-column-start: 1;
 
@@ -180,7 +180,6 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-14 {
-  
     grid-row-start: 5;
     grid-column-start: 2;
 
@@ -188,7 +187,6 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-15 {
-   
     grid-row-start: 6;
     grid-column-start: 2;
 
@@ -196,7 +194,6 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-16 {
-   
     grid-row-start: 7;
     grid-column-start: 2;
 
@@ -204,7 +201,6 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-17 {
-   
     grid-row-start: 5;
     grid-column-start: 3;
 
@@ -212,7 +208,6 @@ export const Grid = styled.div`
     grid-column-end: 4;
   }
   #item-18 {
-   
     grid-row-start: 6;
     grid-column-start: 3;
 
@@ -220,7 +215,6 @@ export const Grid = styled.div`
     grid-column-end: 4;
   }
   #item-19 {
-   
     grid-row-start: 7;
     grid-column-start: 3;
 
@@ -228,7 +222,6 @@ export const Grid = styled.div`
     grid-column-end: 4;
   }
   #item-20 {
-   
     grid-row-start: 5;
     grid-column-start: 4;
 
@@ -236,7 +229,6 @@ export const Grid = styled.div`
     grid-column-end: 5;
   }
   #item-21 {
-   
     grid-row-start: 6;
     grid-column-start: 4;
 
@@ -244,7 +236,6 @@ export const Grid = styled.div`
     grid-column-end: 5;
   }
   #item-22 {
-  
     grid-row-start: 7;
     grid-column-start: 4;
 
@@ -252,7 +243,6 @@ export const Grid = styled.div`
     grid-column-end: 5;
   }
   #item-23 {
-  
     grid-row-start: 8;
     grid-column-start: 1;
 
@@ -260,7 +250,6 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-24 {
-   
     grid-row-start: 8;
     grid-column-start: 2;
 
@@ -268,7 +257,6 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-25 {
-    
     grid-row-start: 8;
     grid-column-start: 3;
 
@@ -282,11 +270,11 @@ export const Grid = styled.div`
 
     grid-row-end: 10;
     grid-column-end: 5;
+    grid-row-end: 10;
     font-size: xx-large;
     font-weight: lighter;
   }
   #item-27 {
-   
     grid-row-start: 9;
     grid-column-start: 1;
 
@@ -294,7 +282,6 @@ export const Grid = styled.div`
     grid-column-end: 2;
   }
   #item-28 {
-   
     grid-row-start: 9;
     grid-column-start: 2;
 
@@ -302,7 +289,6 @@ export const Grid = styled.div`
     grid-column-end: 3;
   }
   #item-29 {
-   
     grid-row-start: 9;
     grid-column-start: 3;
 
@@ -310,31 +296,31 @@ export const Grid = styled.div`
     grid-column-end: 4;
   }
   .cancelButton {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(255, 0, 0, 1) 5%,
-    rgba(0, 0, 0, 1) 10%,
-    rgba(255, 0, 0, 1) 15%,
-    rgba(0, 0, 0, 1) 20%,
-    rgba(255, 0, 0, 1) 25%,
-    rgba(0, 0, 0, 1) 30%,
-    rgba(255, 0, 0, 1) 35%,
-    rgba(0, 0, 0, 1) 40%,
-    rgba(255, 0, 0, 1) 45%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(255, 0, 0, 1) 55%,
-    rgba(0, 0, 0, 1) 60%,
-    rgba(255, 0, 0, 1) 65%,
-    rgba(0, 0, 0, 1) 70%,
-    rgba(255, 0, 0, 1) 75%,
-    rgba(0, 0, 0, 1) 80%,
-    rgba(255, 0, 0, 1) 85%,
-    rgba(0, 0, 0, 1) 90%,
-    rgba(255, 0, 0, 1) 90%,
-    rgba(0, 0, 0, 1) 95%,
-    rgba(255, 0, 0, 1) 100%
-  ) !important;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(255, 0, 0, 1) 5%,
+      rgba(0, 0, 0, 1) 10%,
+      rgba(255, 0, 0, 1) 15%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(255, 0, 0, 1) 25%,
+      rgba(0, 0, 0, 1) 30%,
+      rgba(255, 0, 0, 1) 35%,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(255, 0, 0, 1) 45%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(255, 0, 0, 1) 55%,
+      rgba(0, 0, 0, 1) 60%,
+      rgba(255, 0, 0, 1) 65%,
+      rgba(0, 0, 0, 1) 70%,
+      rgba(255, 0, 0, 1) 75%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(255, 0, 0, 1) 85%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(255, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 1) 95%,
+      rgba(255, 0, 0, 1) 100%
+    ) !important;
   }
 `
 export const minBtn = styled.button`
