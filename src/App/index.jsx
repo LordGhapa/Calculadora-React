@@ -46,7 +46,7 @@ useEffect(()=>{
   useEffect(() => {
     setHasDecimal(String(display).indexOf('.') != -1)
     if(display===".")setDisplay("0.")
-    if(display==="-")setDisplay("")
+    if(display==="-")setDisplay("0")
   }, [display])
 
   const handleDecimal = () => {
