@@ -42,15 +42,14 @@ useEffect(()=>{
   const erase = () => {
     setDisplay(s => String(s).slice(0, -1))
   }
-// HANDLE IF DECIMAL EXISTS
+// HANDLE IF DECIMAL EXISTS AND IF DISPLAY !== -
   useEffect(() => {
-
     setHasDecimal(String(display).indexOf('.') != -1)
     if(display===".")setDisplay("0.")
+    if(display==="-")setDisplay("")
   }, [display])
 
   const handleDecimal = () => {
-   
     if (!hasDecimal) {
       if (display.length > 0) {
         atualizarDisplay('.')
@@ -60,7 +59,7 @@ useEffect(()=>{
       setHasDecimal(true)
     }
   }
-// HANDLE IF DECIMAL EXISTS */
+// HANDLE IF DECIMAL EXISTS AND IF DISPLAY !== - */
 
   const handleOperator = op => {
    
