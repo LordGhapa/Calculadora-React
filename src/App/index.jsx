@@ -119,7 +119,7 @@ useEffect(()=>{
     const operations = ['/', '*', '-', '+']
     const handleKeyDown = e => {
       e.preventDefault()
-      console.log(e.key);
+      // console.log(e.key);
       //  for num 132...
       if (numbers.indexOf(Number(e.key)) != -1) insertNum(e.key)
       // for Backspace
