@@ -63,13 +63,13 @@ useEffect(()=>{
 // HANDLE IF DECIMAL EXISTS */
 
   const handleOperator = op => {
-    
-    if (!newNumber) {
-     
-      setNewNumber(true)
+   
       setOperator(op)
-      setFirstNum(parseFloat(display))
       changeNameOperation(op)
+   
+    if (!newNumber) {  
+      setNewNumber(true)
+      setFirstNum(parseFloat(display))
       setFirstCicleOperation(true)
     }
   }
@@ -83,11 +83,8 @@ useEffect(()=>{
   const preCalculate = () => {
   
     if (firstNum && operator) {
-      let n2 = parseFloat(display)
-
-      
+      let n2 = parseFloat(display)   
       calculate(firstNum, operator, n2)
-
     }
   }
   const calculate = (n1, op, n2) => {
