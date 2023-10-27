@@ -87,10 +87,7 @@ useEffect(()=>{
     }
   }
   const calculate = (n1, op, n2) => {
-    // console.log(n1)
-    // console.log(op)
-    // console.log(n2)
-
+  
     if (op == '+') atualizarDisplay(n1 + n2,true)
     if (op == '*') atualizarDisplay(n1 * n2,true)
 
@@ -133,10 +130,8 @@ useEffect(()=>{
       //for handle operations
       if (operations.indexOf(e.key) != -1) handleOperator(e.key)
 
-      if (e.key === 'Enter') {
-        preCalculate()
-        // calculate()
-      }
+      if (e.key === 'Enter') preCalculate()   
+    
       if (e.key === 'Escape')clearAll()
     }
     document.addEventListener('keydown', handleKeyDown)
