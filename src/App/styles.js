@@ -19,8 +19,8 @@ export const Grid = styled.div`
     width: 33px;
   }
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   gap: 0px;
   height: 100%;
