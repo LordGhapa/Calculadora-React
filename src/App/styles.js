@@ -27,6 +27,7 @@ export const Grid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 0px;
   height: 100%;
+  position: relative;
 
   #item-0 {
     grid-row-start: 1;
@@ -57,9 +58,9 @@ export const Grid = styled.div`
   #item-2-1 {
     grid-row-start: 2;
     grid-column-start: 1;
-    position: absolute;
-    background: #6fb17b;
-    width: 220px;
+    position: absolute; 
+     background: #6fb17b;
+    width: 100%;
     display: flex;
     flex-direction: row;
     text-align: right;
@@ -68,6 +69,7 @@ export const Grid = styled.div`
     font-family: 'Pocket Calculator';
   }
   #item-2 {
+  
     background-color: #6ecc69;
     color: #2e502e;
     grid-row-start: 2;
